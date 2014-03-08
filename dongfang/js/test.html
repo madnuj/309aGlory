@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test 3</title>
+	<script src="js/handlebars-1.0.0.beta.6.js"></script>
+	<script src="js/webtoolkit.md5.js"></script>
+	<script id="result-template" type="text/x-handlebars-template">
+	<h2>You and Your Gravatar</h2>
+	<p>
+	Your email is {{email}} and your gravatar is:<br/>
+	<img src="{{gravatarurl email }}">
+	</p>
+ 
+	</script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+ 
+<body>
+ 
+	<h2>Enter Email Address for Awesomeness</h2>
+	<input type="email" id="email" placeholder="Email goes here..."> 
+	<button id="demoButton">Demo</button>
+ 
+	<div id="resultDiv"></div>
+ 
+	<script>
+ 
+	document.addEventListener("DOMContentLoaded", function() {
+ 
+		//Tip on using Gravar with JS: http://www.deluxeblogtips.com/2010/04/get-gravatar-using-only-javascript.html
+		Handlebars.registerHelper('gravatarurl', function(email) {
+		    return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?s=250';
+		});
+ 
+		//Get the contents from the script block 
+		var source = document.querySelector("#result-template").innerHTML;
+		//Compile that baby into a template
+		template = Handlebars.compile(source);
+ 
+		document.querySelector("#demoButton").addEventListener("click", function() {
+			var email = document.querySelector("#email").value;
+			if(!email.length) return;
+ 
+			var html = template({email:email});
+			document.querySelector("#resultDiv").innerHTML = html;
+ 
+		});
+	});
+ 
+ 
+	</script>
+ 
+</body>
+</html>
