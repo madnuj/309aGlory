@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="signup-page" data-role="page">
+      <div data-role="header">
+        <a data-role="button" data-rel="back" data-icon="back" href="#">返回</a>
+        <h1>注册</h1>
+      </div>
+      <div data-role="content" id="signup-content-div">
+        <input type="text" name="signup_user_name" id="signup_user_name" value="" placeholder="用户名"/>
+        <input type="password" name="signup_password" id="signup_password" value="" placeholder="密码"/>
+        <input type="text" name="signup_mobile" id="signup_mobile" value="" placeholder="手机号码"/>
+        <input type="text" name="signup_company" id="signup_company" value="" placeholder="公司名称"/>
+        <input type="text" name="signup_true_name" id="signup_true_name" value="" placeholder="真实姓名"/>
+        <input type="text" name="signup_email" id="signup_email" value="" placeholder="邮件"/>
+        <a href="javascript:user.signup_get_nonce_ajax_query()" data-role="button">注册</a>
+      </div>
+    </div>
+  </body>
+</html>

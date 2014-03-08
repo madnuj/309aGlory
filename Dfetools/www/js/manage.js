@@ -1,0 +1,1 @@
+var last_page_id = '';
